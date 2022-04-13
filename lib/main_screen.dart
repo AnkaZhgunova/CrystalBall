@@ -57,13 +57,9 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 Image.asset(
                   'assets/image 1.png',
-                  height: 260,
-                  width: 260,
                 ),
                 Image.asset(
                   'assets/iside_circle.png',
-                  height: 130,
-                  width: 130,
                 ),
                 TextButton(
                   child: Text(
