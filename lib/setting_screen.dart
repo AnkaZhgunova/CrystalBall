@@ -34,14 +34,19 @@ class SettingScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-                left: 25, top: 24, right: 243, bottom: 20),
+              left: 25,
+              top: 24,
+              right: 243,
+              bottom: 20,
+            ),
             child: Text(
               'Настройки',
               style: TextStyle(
-                  color: Color(0xFFDFEDFF),
-                  fontFamily: 'Nunito',
-                  fontSize: 25,
-                  fontWeight: FontWeight.w400),
+                color: Color(0xFFDFEDFF),
+                fontFamily: 'Nunito',
+                fontSize: 25,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
           SettingsContainer(
@@ -60,8 +65,16 @@ class SettingScreen extends StatelessWidget {
               color: Color(0xFFDFEDFF),
             ),
           ),
-          SettingsContainer(info: 'Оценить', setting: null, icon: null ),
-           SettingsContainer(info: 'Версия', setting: '1.0', icon: null,),
+          SettingsContainer(
+            info: 'Оценить',
+            setting: null,
+            icon: null,
+          ),
+          SettingsContainer(
+            info: 'Версия',
+            setting: '1.0',
+            icon: null,
+          ),
         ],
       ),
     );
@@ -85,30 +98,34 @@ class SettingsContainer extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 1, horizontal: 15),
       height: 52,
       decoration: BoxDecoration(
-        border: Border.all(color: Color(0xFF36383A)),
+        border: Border.all(
+          color: Color(0xFF36383A),
+        ),
       ),
       child: Row(
         children: [
           Text(
             info,
             style: TextStyle(
-                color: Color(0xFFDFEDFF),
-                fontFamily: 'Nunito',
-                fontSize: 20,
-                fontWeight: FontWeight.w400),
+              color: Color(0xFFDFEDFF),
+              fontFamily: 'Nunito',
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+            ),
           ),
           Spacer(),
           Text(
-            setting??"",
+            setting ?? "",
             style: TextStyle(
-                color: Color(0xFFDFEDFF),
-                fontFamily: 'Nunito',
-                fontSize: 18,
-                fontWeight: FontWeight.w400),
+              color: Color(0xFFDFEDFF),
+              fontFamily: 'Nunito',
+              fontSize: 18,
+              fontWeight: FontWeight.w400,
+            ),
           ),
           IconButton(
             onPressed: () {},
-            icon: icon??SizedBox(),
+            icon: icon ?? SizedBox(),
           ),
         ],
       ),
