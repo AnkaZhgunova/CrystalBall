@@ -1,11 +1,14 @@
-import 'dart:math';
-
-import 'package:ball_hw/setting_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ball_hw/constants.dart';
+import 'package:ball_hw/settings/setting_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'answer_provider.dart';
+
 class MainScreen extends StatelessWidget {
+  MainScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     AnswerProvider _state = Provider.of<AnswerProvider>(context);
@@ -15,7 +18,7 @@ class MainScreen extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/image.png'),
+              image: AssetImage('assets/images/image.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -39,44 +42,34 @@ class MainScreen extends StatelessWidget {
                     );
                   },
                   icon: Image.asset(
-                    'assets/Vector.png',
+                    'assets/images/Vector.png',
                   ),
                 ),
               ),
               Spacer(),
               Text(
-                'Задай вопрос',
-                style: TextStyle(
-                  color: Color.fromRGBO(
-                    223,
-                    237,
-                    255,
-                    1,
-                  ),
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Nunito',
-                ),
-              ),
+                'ask_question',
+                style: Style.fs25Regular400,
+              ).tr(),
               Spacer(
                 flex: 4,
               ),
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  Image.asset('assets/image 1.png'),
+                  Image.asset('assets/images/image 1.png'),
                   _state.image,
                   TextButton(
                     child: Text(
                       _state.element.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Color(0xFFDFEDFF),
+                        color: kTextColor,
                         fontSize: _state.size,
                         fontWeight: FontWeight.w400,
                         fontFamily: 'Nunito',
                       ),
-                    ),
+                    ).tr(),
                     onPressed: () {
                       _state.changeAnswer();
                     },
@@ -94,24 +87,4 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-class AnswerProvider extends ChangeNotifier {
-  double size = 30;
-  var element = 'НАЧАТЬ';
-  List<String> answer = [
-    'Да!',
-    'Нет!',
-    'Туманно...',
-    'Перспективы \n не очень \n хорошие',
-  ];
-  final _random = new Random();
-  Image image = Image.asset('assets/iside_circle.png');
 
-  //List<String> get changeValue => answer;
-
-  void changeAnswer() {
-    element = answer[_random.nextInt(answer.length)];
-    image = Image.asset('assets/image 2.png');
-    size = 20;
-    notifyListeners();
-  }
-}

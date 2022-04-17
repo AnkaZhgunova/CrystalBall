@@ -1,0 +1,19 @@
+{
+  "ask_question" : "Задай вопрос",
+  "start" : "НАЧАТЬ",
+  "yes" : "Да!",
+  "no" : "Нет!",
+  "foggy" : "Туманно...",
+  "prospects_not_very_good" : "Перспективы \n не очень \n хорошие",
+  "back" : "Назад",
+  "settings" : "Настройки",
+  "change_language" : "Изменить язык",
+  "change_theme" : "Изменить тему",
+  "standard" : "Стандартная",
+  "estimate" : "Оценить",
+  "version" : "Версия",
+  "universe" : "Вселенная",
+  "water_color" : "Акварель",
+  "comic" : "Комикс",
+  "mystic" : "Мистика"
+}

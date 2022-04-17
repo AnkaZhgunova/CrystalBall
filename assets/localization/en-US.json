@@ -1,0 +1,19 @@
+{
+  "ask_question" : "Ask a question",
+  "start" : "START",
+  "yes" : "Yes!",
+  "no" : "No!",
+  "foggy" : "Foggy...",
+  "prospects_not_very_good" : "Prospects \n not are \n very good",
+  "back" : "Back",
+  "settings" : "Settings",
+  "change_language" : "Change language",
+  "change_theme" : "Change theme",
+  "standard" : "Standard",
+  "estimate" : "Estimate",
+  "version" : "Version",
+  "universe" : "Universe",
+  "water_color" : "Watercolor",
+  "comic" : "Comic",
+  "mystic" : "Mystic"
+}
