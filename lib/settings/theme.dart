@@ -42,54 +42,43 @@ class ThemeScreen extends StatelessWidget {
             ).tr(),
           ),
           ThemeContainer(
-              image: 'assets/images/image.png',
-              textTheme: 'standard',
-              selected: _state.appTheme == AppTheme.standard,
-              appTheme: _state.appTheme,
-              onChanged: (AppTheme theme){
-                Navigator.pop(context, );
-          },
+            currentValue: _state.appTheme,
+            value: AppTheme.standard,
+            image: 'assets/images/image.png',
+            textTheme: 'standard',
+            onChanged: (AppTheme theme) {
+              _state.changeTheme(theme);
+            },
           ),
-          // ThemeContainer(
-          //     image: 'assets/images/image 27.png',
-          //     textTheme: 'universe',
-          //     onChanged: _state.changeButtonTheme,
-          //     value1: ThemeApp.theme2),
-          // ThemeContainer(
-          //     image: 'assets/images/11 1.png',
-          //     textTheme: 'water_color',
-          //     onChanged: _state.changeButtonTheme,
-          //     value1: ThemeApp.theme3),
-          // ThemeContainer(
-          //     image: 'assets/images/685 1.png',
-          //     textTheme: 'comic',
-          //     onChanged: _state.changeButtonTheme,
-          //     value1: ThemeApp.theme4),
-          // ThemeContainer(
-          //     image: 'assets/images/423826-PE4KYC-325 1.png',
-          //     textTheme: 'mystic',
-          //     onChanged: _state.changeButtonTheme,
-          //     value1: ThemeApp.theme5),
+          ThemeContainer(
+            currentValue: _state.appTheme,
+            value: AppTheme.universe,
+            image: 'assets/images/image 27.png',
+            textTheme: 'universe',
+            onChanged: (AppTheme theme) {
+              _state.changeTheme(theme);
+            },
+          ),
         ],
       ),
     );
   }
 }
 
-
 class ThemeContainer extends StatefulWidget {
   final String textTheme;
-  final bool selected;
   final ValueChanged<AppTheme> onChanged;
   final String image;
-  final AppTheme appTheme;
+  final AppTheme value;
+  final AppTheme currentValue;
 
-  ThemeContainer({Key? key,
+  ThemeContainer({
+    Key? key,
     required this.textTheme,
     required this.onChanged,
     required this.image,
-    required this.selected,
-    required this.appTheme,
+    required this.currentValue,
+    required this.value,
   }) : super(key: key);
 
   @override
@@ -124,32 +113,31 @@ class _ThemeContainerState extends State<ThemeContainer> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              widget.onChanged.call(AppTheme);
+              widget.onChanged.call(widget.value);
             },
             child: Container(
-              width: 24,
-              height: 24,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(45)),
-                border: Border.all(
-                  width: 2,
-                  color: Color(0xffDFEDFF),
-                ),
-              ),
-              child: Visibility(
-                visible: widget.selected,
-                child: Container(
-                  margin: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
+                width: 24,
+                height: 24,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(45)),
+                  border: Border.all(
+                    width: 2,
                     color: Color(0xffDFEDFF),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(45),
-                    ),
                   ),
                 ),
-              ),
-            ),
-          )
+                child: Visibility(
+                  visible: widget.currentValue == widget.value,
+                  child: Container(
+                    margin: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Color(0xffDFEDFF),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(45),
+                      ),
+                    ),
+                  ),
+                )),
+          ),
         ],
       ),
     );
