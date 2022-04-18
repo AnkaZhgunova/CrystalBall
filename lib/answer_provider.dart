@@ -3,22 +3,19 @@ import 'dart:math';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-enum LanguageApp { russian, english, ukrainian }
-enum ThemeApp { theme1, theme2, theme3, theme4, theme5 }
-
+enum AppTheme {standard, universe, watercolor, comic, mystic}
 class AnswerProvider extends ChangeNotifier {
-
   double size = 30;
-  var element = tr('start');
+  var element = 'start';
   List<String> answer = [
     'yes',
     'no',
     'foggy',
     'prospects_not_very_good',
   ];
+
   final _random = Random();
   Image image = Image.asset('assets/images/iside_circle.png');
-
 
   void changeAnswer() {
     element = answer[_random.nextInt(answer.length)];
@@ -27,22 +24,31 @@ class AnswerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  LanguageApp _language = LanguageApp.russian;
+  String _backgroundImage = 'assets/images/image.png';
+  AppTheme _appTheme = AppTheme.standard;
 
-  LanguageApp get languageButton => _language;
+  String get backgroundImage => _backgroundImage;
+  AppTheme get appTheme => _appTheme;
 
-  void changeLanguageButton(LanguageApp? value){
-    _language = value!;
-    notifyListeners();
+  void changeTheme(AppTheme theme){
+    switch(theme){
+      case AppTheme.standard:
+        _backgroundImage = 'assets/images/image.png';
+        break;
+      case AppTheme.universe:
+        _backgroundImage = 'assets/images/image 27.png';
+        break;
+      case AppTheme.watercolor:
+        _backgroundImage = 'assets/images/11 1.png';
+        break;
+      case AppTheme.comic:
+        _backgroundImage = 'assets/images/685 1.png';
+        break;
+      case AppTheme.mystic:
+        _backgroundImage = 'assets/images/423826-PE4KYC-325 1.png';
+        break;
+    }
+    _appTheme = theme;
+  notifyListeners();
   }
-
-  ThemeApp _theme = ThemeApp.theme1;
-
-  ThemeApp get themeButton => _theme;
-
-  void changeButtonTheme(ThemeApp? value){
-    _theme = value!;
-    notifyListeners();
-  }
-
 }

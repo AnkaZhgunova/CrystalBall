@@ -33,9 +33,9 @@ class LanguageScreen extends StatelessWidget {
               bottom: 20,
             ),
             child: Text(
-              'change_theme',
+              'change_language',
               style: Style.fs20Regular400,
-            ),
+            ).tr(),
           ),
           LanguageContainer(
             title: 'Русский',
@@ -78,42 +78,51 @@ class LanguageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: Style.fs20Regular400,
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 1, horizontal: 20),
+      height: 52,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Color(0xFF36383A),
         ),
-        GestureDetector(
-          onTap: () {
-            onChanged.call(selected);
-          },
-          child: Container(
-            width: 24,
-            height: 24,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(45)),
-              border: Border.all(
-                width: 2,
-                color: Color(0xffDFEDFF),
-              ),
-            ),
-            child: Visibility(
-              visible: selected,
-              child: Container(
-                margin: EdgeInsets.all(4),
-                decoration: BoxDecoration(
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: Style.fs20Regular400,
+          ),
+          GestureDetector(
+            onTap: () {
+              onChanged.call(selected);
+            },
+            child: Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(45)),
+                border: Border.all(
+                  width: 2,
                   color: Color(0xffDFEDFF),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(45),
+                ),
+              ),
+              child: Visibility(
+                visible: selected,
+                child: Container(
+                  margin: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Color(0xffDFEDFF),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(45),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

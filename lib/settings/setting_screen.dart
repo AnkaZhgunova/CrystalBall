@@ -34,9 +34,9 @@ class SettingScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              left: 25,
+              left: 10,
               top: 24,
-              right: 243,
+              right: 190,
               bottom: 20,
             ),
             child: Text(
