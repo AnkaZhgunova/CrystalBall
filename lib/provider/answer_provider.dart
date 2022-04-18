@@ -2,24 +2,24 @@ import 'dart:math';
 import 'package:ball_hw/constants.dart';
 import 'package:flutter/material.dart';
 
-enum AppTheme {standard, universe, watercolor, comic, mystic}
-enum AppTextStyle {nunito, comfortaa, comicNeue, underdog}
+enum AppTheme { standard, universe, watercolor, comic, mystic }
 
 class AnswerProvider extends ChangeNotifier {
   double size = 30;
-  var element = 'start';
-  List<String> answer = [
+  static List<String> answer = [
     'yes',
     'no',
     'foggy',
     'prospects_not_very_good',
+    'start'
   ];
+  String element = answer.last;
 
   final _random = Random();
   Image image = Image.asset('assets/images/iside_circle.png');
 
   void changeAnswer() {
-    element = answer[_random.nextInt(answer.length)];
+    element = answer[_random.nextInt(answer.length - 1)];
     image = Image.asset('assets/images/image 2.png');
     size = 20;
     notifyListeners();
@@ -33,8 +33,8 @@ class AnswerProvider extends ChangeNotifier {
   TextStyle get textStyle => _textStyle;
   AppTheme get appTheme => _appTheme;
 
-  void changeTheme(AppTheme theme){
-    switch(theme){
+  void changeTheme(AppTheme theme) {
+    switch (theme) {
       case AppTheme.standard:
         _backgroundImage = 'assets/images/image.png';
         _textStyle = Style.fs25Regular400;
@@ -57,6 +57,6 @@ class AnswerProvider extends ChangeNotifier {
         break;
     }
     _appTheme = theme;
-  notifyListeners();
+    notifyListeners();
   }
 }

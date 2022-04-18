@@ -2,8 +2,7 @@ import 'package:ball_hw/constants.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../answer_provider.dart';
+import '../../provider/answer_provider.dart';
 
 class ThemeScreen extends StatelessWidget {
   const ThemeScreen({Key? key}) : super(key: key);
@@ -143,27 +142,28 @@ class _ThemeContainerState extends State<ThemeContainer> {
               widget.onChanged.call(widget.value);
             },
             child: Container(
-                width: 24,
-                height: 24,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(45)),
-                  border: Border.all(
-                    width: 2,
-                    color: Color(0xffDFEDFF),
-                  ),
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(45)),
+                border: Border.all(
+                  width: 2,
+                  color: Color(0xffDFEDFF),
                 ),
-                child: Visibility(
-                  visible: widget.currentValue == widget.value,
-                  child: Container(
-                    margin: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      color: Color(0xffDFEDFF),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(45),
-                      ),
+              ),
+              child: Visibility(
+                visible: widget.currentValue == widget.value,
+                child: Container(
+                  margin: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Color(0xffDFEDFF),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(45),
                     ),
                   ),
-                )),
+                ),
+              ),
+            ),
           ),
         ],
       ),

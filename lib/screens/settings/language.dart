@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../../constants.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class LanguageScreen extends StatelessWidget {
-   LanguageScreen({Key? key}) : super(key: key);
+  LanguageScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +120,7 @@ class LanguageContainer extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

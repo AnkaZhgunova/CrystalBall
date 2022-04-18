@@ -1,9 +1,8 @@
 import 'package:ball_hw/constants.dart';
-import 'package:ball_hw/settings/theme.dart';
+import 'package:ball_hw/screens/settings/language.dart';
+import 'package:ball_hw/screens/settings/theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import 'language.dart';
 
 class SettingScreen extends StatelessWidget {
   SettingScreen({Key? key}) : super(key: key);
@@ -102,7 +101,8 @@ class SettingsContainer extends StatelessWidget {
   final Icon? icon;
   final VoidCallback? onPress;
 
-  SettingsContainer({Key? key,
+  SettingsContainer({
+    Key? key,
     this.setting,
     required this.info,
     this.icon,
