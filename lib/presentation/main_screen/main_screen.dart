@@ -1,10 +1,10 @@
-import 'package:ball_hw/constants.dart';
-import 'package:ball_hw/screens/setting_screen.dart';
+import 'package:ball_hw/style/text_style.dart';
+import 'package:ball_hw/presentation/settings_screen/setting_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../domain/provider/answer_provider.dart';
 
-import '../provider/answer_provider.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);

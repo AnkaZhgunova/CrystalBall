@@ -1,6 +1,7 @@
 import 'dart:math';
-import 'package:ball_hw/constants.dart';
+import 'package:ball_hw/style/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum AppTheme { standard, universe, watercolor, comic, mystic }
 
@@ -25,9 +26,12 @@ class AnswerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  String _backgroundImage = 'assets/images/image.png';
+ String _backgroundImage = 'assets/images/image.png';
   TextStyle _textStyle = Style.fs25Regular400;
   AppTheme _appTheme = AppTheme.standard;
+
+  final String key = "theme";
+  late SharedPreferences sharedPreferences;
 
   String get backgroundImage => _backgroundImage;
   TextStyle get textStyle => _textStyle;
@@ -59,4 +63,8 @@ class AnswerProvider extends ChangeNotifier {
     _appTheme = theme;
     notifyListeners();
   }
+
+
+
+
 }

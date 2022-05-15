@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'provider/answer_provider.dart';
-import 'screens/main_screen.dart';
+import 'domain/provider/answer_provider.dart';
+import 'presentation/main_screen/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +16,7 @@ void main() async {
         Locale('uk', 'UA'),
       ],
       fallbackLocale: Locale('ru', 'RU'),
+      saveLocale: true,
       path: 'assets/localization',
       child: MyApp(),
     ),
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
+
         home: MainScreen(),
       ),
     );
