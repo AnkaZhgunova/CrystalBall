@@ -5,6 +5,7 @@ import 'package:ball_hw/presentation/settings_screen/widgets/settings_container.
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+
 class SettingScreen extends StatelessWidget {
   SettingScreen({Key? key}) : super(key: key);
 
@@ -28,7 +29,7 @@ class SettingScreen extends StatelessWidget {
               ),
               Text(
                 'back',
-                style: Style.fs18Regular400,
+                style: AppTextStyle.fs18Regular400,
               ).tr(),
             ],
           ),
@@ -41,7 +42,7 @@ class SettingScreen extends StatelessWidget {
             ),
             child: Text(
               'settings',
-              style: Style.fs25Regular400,
+              style: AppTextStyle.fs25Regular400,
             ).tr(),
           ),
           SettingsContainer(
@@ -64,7 +65,8 @@ class SettingScreen extends StatelessWidget {
           ),
           SettingsContainer(
             info: 'change_theme',
-            setting: 'standard',
+            setting:
+                'standard', // TODO: Сделать чтоб тут менялось в зависимости от выбранной темы (из провайдера)
             icon: Icon(
               Icons.arrow_forward_ios,
               color: kTextColor,
@@ -95,5 +97,3 @@ class SettingScreen extends StatelessWidget {
     );
   }
 }
-
-

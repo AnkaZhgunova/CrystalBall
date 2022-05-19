@@ -36,7 +36,7 @@ class LanguageScreen extends StatelessWidget {
             ),
             child: Text(
               'change_language',
-              style: Style.fs20Regular400,
+              style: AppTextStyle.fs20Regular400,
             ).tr(),
           ),
           LanguageContainer(
@@ -65,4 +65,3 @@ class LanguageScreen extends StatelessWidget {
     );
   }
 }
-

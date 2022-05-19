@@ -1,16 +1,17 @@
+import 'package:ball_hw/domain/provider/app_theme_provider.dart';
 import 'package:ball_hw/style/text_style.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../domain/provider/answer_provider.dart';
-import '../widgets/theme_container.dart';
+import 'package:ball_hw/data/models/app_theme.dart';
+import 'package:ball_hw/presentation/settings_screen/widgets/theme_container.dart';
 
 class ThemeScreen extends StatelessWidget {
   const ThemeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    AnswerProvider _state = Provider.of<AnswerProvider>(context);
+    AppThemeProvider _state = Provider.of<AppThemeProvider>(context);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
@@ -38,11 +39,11 @@ class ThemeScreen extends StatelessWidget {
             ),
             child: Text(
               'change_theme',
-              style: Style.fs25Regular400,
+              style: AppTextStyle.fs25Regular400,
             ).tr(),
           ),
           ThemeContainer(
-            currentValue: _state.appTheme,
+            currentValue: _state.theme.appTheme,
             value: AppTheme.standard,
             image: 'assets/images/image.png',
             textTheme: 'standard',
@@ -51,7 +52,7 @@ class ThemeScreen extends StatelessWidget {
             },
           ),
           ThemeContainer(
-            currentValue: _state.appTheme,
+            currentValue: _state.theme.appTheme,
             value: AppTheme.universe,
             image: 'assets/images/image 27.png',
             textTheme: 'universe',
@@ -60,7 +61,7 @@ class ThemeScreen extends StatelessWidget {
             },
           ),
           ThemeContainer(
-            currentValue: _state.appTheme,
+            currentValue: _state.theme.appTheme,
             value: AppTheme.watercolor,
             image: 'assets/images/11 1.png',
             textTheme: 'water_color',
@@ -69,7 +70,7 @@ class ThemeScreen extends StatelessWidget {
             },
           ),
           ThemeContainer(
-            currentValue: _state.appTheme,
+            currentValue: _state.theme.appTheme,
             value: AppTheme.comic,
             image: 'assets/images/685 1.png',
             textTheme: 'comic',
@@ -78,7 +79,7 @@ class ThemeScreen extends StatelessWidget {
             },
           ),
           ThemeContainer(
-            currentValue: _state.appTheme,
+            currentValue: _state.theme.appTheme,
             value: AppTheme.mystic,
             image: 'assets/images/423826-PE4KYC-325 1.png',
             textTheme: 'mystic',
@@ -91,5 +92,3 @@ class ThemeScreen extends StatelessWidget {
     );
   }
 }
-
-

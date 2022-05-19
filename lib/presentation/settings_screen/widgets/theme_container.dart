@@ -1,9 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../domain/provider/answer_provider.dart';
+import '../../../data/models/app_theme.dart';
 import '../../../style/text_style.dart';
-
 
 class ThemeContainer extends StatefulWidget {
   final String textTheme;
@@ -48,7 +47,7 @@ class _ThemeContainerState extends State<ThemeContainer> {
           ),
           Text(
             widget.textTheme,
-            style: Style.fs20Regular400,
+            style: AppTextStyle.fs20Regular400,
           ).tr(),
           Spacer(),
           GestureDetector(

@@ -29,7 +29,7 @@ class LanguageContainer extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Style.fs20Regular400,
+            style: AppTextStyle.fs20Regular400,
           ),
           GestureDetector(
             onTap: () {

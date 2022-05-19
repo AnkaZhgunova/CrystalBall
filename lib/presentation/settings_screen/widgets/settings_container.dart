@@ -31,12 +31,12 @@ class SettingsContainer extends StatelessWidget {
         children: [
           Text(
             info,
-            style: Style.fs20Regular400,
+            style: AppTextStyle.fs20Regular400,
           ).tr(),
           Spacer(),
           Text(
             setting ?? "",
-            style: Style.fs18Regular400,
+            style: AppTextStyle.fs18Regular400,
           ).tr(),
           IconButton(
             onPressed: onPress,

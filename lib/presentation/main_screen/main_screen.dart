@@ -3,8 +3,8 @@ import 'package:ball_hw/presentation/settings_screen/setting_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../domain/provider/answer_provider.dart';
-
+import 'package:ball_hw/domain/provider/answer_provider.dart';
+import 'package:ball_hw/domain/provider/app_theme_provider.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
@@ -12,13 +12,14 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AnswerProvider _state = Provider.of<AnswerProvider>(context);
+    AppThemeProvider _themeProvider = Provider.of<AppThemeProvider>(context);
     return MaterialApp(
       home: Scaffold(
         body: Container(
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(_state.backgroundImage),
+              image: AssetImage(_themeProvider.theme.backgroundImage),
               fit: BoxFit.cover,
             ),
           ),
@@ -49,7 +50,7 @@ class MainScreen extends StatelessWidget {
               Spacer(),
               Text(
                 'ask_question',
-                style: _state.textStyle,
+                style: _themeProvider.theme.textStyle,
               ).tr(),
               Spacer(
                 flex: 4,

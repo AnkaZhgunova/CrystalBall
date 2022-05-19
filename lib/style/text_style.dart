@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const kTextColor = Color(0xFFDFEDFF);
 
-class Style {
+class AppTextStyle {
   static final TextStyle fs25Regular400 = TextStyle(
     color: kTextColor,
     fontFamily: 'Nunito',
