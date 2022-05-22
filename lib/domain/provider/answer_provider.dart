@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class AnswerProvider extends ChangeNotifier {
-  final String key = "theme";
   final _random = Random();
 
   double size = 30;
@@ -20,6 +19,13 @@ class AnswerProvider extends ChangeNotifier {
     element = answer[_random.nextInt(answer.length - 1)];
     image = Image.asset('assets/images/image 2.png');
     size = 20;
+    notifyListeners();
+  }
+
+  void resetAnswer() {
+    element = answer.last;
+    image = Image.asset('assets/images/iside_circle.png');
+    size = 30;
     notifyListeners();
   }
 }

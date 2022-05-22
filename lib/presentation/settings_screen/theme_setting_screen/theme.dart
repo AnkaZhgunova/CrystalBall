@@ -1,3 +1,4 @@
+import 'package:ball_hw/domain/provider/answer_provider.dart';
 import 'package:ball_hw/domain/provider/app_theme_provider.dart';
 import 'package:ball_hw/style/text_style.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -11,7 +12,7 @@ class ThemeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppThemeProvider _state = Provider.of<AppThemeProvider>(context);
+    AppThemeProvider state = Provider.of<AppThemeProvider>(context);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
@@ -43,48 +44,53 @@ class ThemeScreen extends StatelessWidget {
             ).tr(),
           ),
           ThemeContainer(
-            currentValue: _state.theme.appTheme,
+            currentValue: state.theme.appTheme,
             value: AppTheme.standard,
             image: 'assets/images/image.png',
             textTheme: 'standard',
             onChanged: (AppTheme theme) {
-              _state.changeTheme(theme);
+              state.changeTheme(theme);
+              context.read<AnswerProvider>().resetAnswer();
             },
           ),
           ThemeContainer(
-            currentValue: _state.theme.appTheme,
+            currentValue: state.theme.appTheme,
             value: AppTheme.universe,
             image: 'assets/images/image 27.png',
             textTheme: 'universe',
             onChanged: (AppTheme theme) {
-              _state.changeTheme(theme);
+              state.changeTheme(theme);
+              context.read<AnswerProvider>().resetAnswer();
             },
           ),
           ThemeContainer(
-            currentValue: _state.theme.appTheme,
+            currentValue: state.theme.appTheme,
             value: AppTheme.watercolor,
             image: 'assets/images/11 1.png',
             textTheme: 'water_color',
             onChanged: (AppTheme theme) {
-              _state.changeTheme(theme);
+              state.changeTheme(theme);
+              context.read<AnswerProvider>().resetAnswer();
             },
           ),
           ThemeContainer(
-            currentValue: _state.theme.appTheme,
+            currentValue: state.theme.appTheme,
             value: AppTheme.comic,
             image: 'assets/images/685 1.png',
             textTheme: 'comic',
             onChanged: (AppTheme theme) {
-              _state.changeTheme(theme);
+              state.changeTheme(theme);
+              context.read<AnswerProvider>().resetAnswer();
             },
           ),
           ThemeContainer(
-            currentValue: _state.theme.appTheme,
+            currentValue: state.theme.appTheme,
             value: AppTheme.mystic,
             image: 'assets/images/423826-PE4KYC-325 1.png',
             textTheme: 'mystic',
             onChanged: (AppTheme theme) {
-              _state.changeTheme(theme);
+              state.changeTheme(theme);
+              context.read<AnswerProvider>().resetAnswer();
             },
           ),
         ],

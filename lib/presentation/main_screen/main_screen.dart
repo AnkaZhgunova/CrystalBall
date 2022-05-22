@@ -11,15 +11,15 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AnswerProvider _state = Provider.of<AnswerProvider>(context);
-    AppThemeProvider _themeProvider = Provider.of<AppThemeProvider>(context);
+    AnswerProvider state = Provider.of<AnswerProvider>(context);
+    AppThemeProvider themeProvider = Provider.of<AppThemeProvider>(context);
     return MaterialApp(
       home: Scaffold(
         body: Container(
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(_themeProvider.theme.backgroundImage),
+              image: AssetImage(themeProvider.theme.backgroundImage),
               fit: BoxFit.cover,
             ),
           ),
@@ -50,7 +50,7 @@ class MainScreen extends StatelessWidget {
               Spacer(),
               Text(
                 'ask_question',
-                style: _themeProvider.theme.textStyle,
+                style: themeProvider.theme.textStyle,
               ).tr(),
               Spacer(
                 flex: 4,
@@ -59,20 +59,20 @@ class MainScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Image.asset('assets/images/image 1.png'),
-                  _state.image,
+                  state.image,
                   TextButton(
                     child: Text(
-                      _state.element.toString(),
+                      state.element.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: kTextColor,
-                        fontSize: _state.size,
+                        fontSize: state.size,
                         fontWeight: FontWeight.w400,
                         fontFamily: 'Nunito',
                       ),
                     ).tr(),
                     onPressed: () {
-                      _state.changeAnswer();
+                      state.changeAnswer();
                     },
                   ),
                 ],
